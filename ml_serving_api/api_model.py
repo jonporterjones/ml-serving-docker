@@ -1,4 +1,5 @@
 """FastAPI for serving a ML Model."""
+import os
 from contextlib import asynccontextmanager
 import pickle
 from typing import List
@@ -22,7 +23,11 @@ iris_resources = {}
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Load the ML model
+
+
+    print(f"Current Working Directory: {os.getcwd()}")
+
+              # Load the ML model
     iris_resources["model"] = pickle.load(open('./resources/model.pkl', mode='r+b'))
 
     output_classes = {
