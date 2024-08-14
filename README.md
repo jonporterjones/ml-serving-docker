@@ -18,11 +18,11 @@ Therefore inputs must be list of dictionaries:
 
 ### push image to ecr
 aws ecr create-repository --repository-name ml-serving-docker
-docker tag ml-serving-docker-image 766551654251.dkr.ecr.us-east-2.amazonaws.com/ml-serving-docker
+docker tag ml-serving-docker-image <your-account-id>.dkr.ecr.us-east-2.amazonaws.com/ml-serving-docker
 
 Login to ecr
-aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 766551654251.dkr.ecr.us-east-2.amazonaws.com
-docker push 766551654251.dkr.ecr.us-east-2.amazonaws.com/ml-serving-docker
+aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin <your-account-id>.dkr.ecr.us-east-2.amazonaws.com
+docker push <your-account-id>.dkr.ecr.us-east-2.amazonaws.com/ml-serving-docker
 
 Done!
 
